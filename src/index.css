@@ -1,0 +1,16 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+/*Font family: Poppins;*/
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap");
+/*Font family: Oswald;*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+/*Font family: Montserrat;*/
+
+/*Color Pallete:
+    #676eff(Purple)
+    #fff(White)
+    #72748e(Light Grey)
+    #23232f(Dark Grey BG)
+*/
