@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <>
       <div className="nav w-full h-[15vh] font-[Poppins] text-white flex items-center justify-between p-12">
         <div className="left flex">
-          <img src="/Logo.png" alt="logo" className="h-16 w-16 object-cover"/>
+          <img src="/Logo.png" alt="logo" className="h-16 w-16 object-cover" />
           <ul className="mx-10 flex gap-14 items-center">
-            <a href="/">Mouse</a>
+            <a href="/Mouse">Mouse</a>
             <a href="/">Keyboard</a>
             <a href="/">Headsets</a>
             <a href="/">Mousepads</a>

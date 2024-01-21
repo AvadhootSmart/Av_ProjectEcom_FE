@@ -12,7 +12,7 @@ const HeroCard = ({category, image, price, disPrice, prodName}) => {
         </div>
         <div className="front font-[Poppins]  z-10 w-full h-[100%] flex justify-around items-center relative">
           <div className="Section-L h-full max-w-[30%] flex flex-col justify-evenly">
-            <div className="prodName text-8xl font-bold text-left text-white">
+            <div className="prodName text-7xl font-bold text-left text-white">
               <h2>{category}-{prodName}</h2>
             </div>
             <div className="price flex gap-8 text-5xl">
@@ -28,7 +28,7 @@ const HeroCard = ({category, image, price, disPrice, prodName}) => {
             <img
               src={image}
               alt=""
-              className="object-cover scale-110 drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]"
+              className="object-cover drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]"
             />
           </div>
         </div>
