@@ -10,8 +10,8 @@ const Featured = ({ featuredCards }) => {
           <h1>Featured</h1>
         </div>
         <div className="card w-full h-full flex flex-shrink justify-center text-white items-center relative z-10">
-          {featuredCards.map((card, i) => (
-            <FeaturedCard key={i} {...card} />
+          {featuredCards.map((card) => (
+            <FeaturedCard key={card._id} card = {card} />
           ))}
         </div>
       </div>
