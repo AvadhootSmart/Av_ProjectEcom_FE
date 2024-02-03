@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import HeroCard from "../components/HeroCard";
 import ProductCard from "../components/ProductCard";
 import ProductDetails from "../components/ProductDetails";
 

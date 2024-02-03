@@ -1,35 +1,41 @@
 import React, { useState } from "react";
 import { IoIosAddCircleOutline } from "react-icons/io";
-/*Props to be received:
-  BackText, HeroProductName, Price, Discount Price, Image
-*/
-const HeroCard = ({category, productImg, price, discountPrice, name}) => {
-  
+import { CiCirclePlus } from "react-icons/ci";
+
+const HeroCard = ({ category, productImg, price, discountPrice, name }) => {
   return (
     <>
-      <div className="w-full h-[85vh] relative">
-        <div className="backText absolute top-[45%] overflow-hidden -translate-y-1/2 -translate-x-7 font-[Montserrat] text-[18rem] text-[#72748e] opacity-15 z-0 select-none font-extrabold uppercase tracking-wide">
+      <div className="relative h-[85vh] w-full">
+        <div className="backText absolute top-[45%] z-0 -translate-x-7 -translate-y-1/2 select-none overflow-hidden font-[Montserrat] text-[18rem] font-extrabold uppercase tracking-wide text-[#72748e] opacity-15">
           <h1>{category}</h1>
         </div>
-        <div className="front font-[Poppins]  z-10 w-full h-[100%] flex justify-around items-center relative">
-          <div className="Section-L h-full max-w-[30%] flex flex-col justify-evenly">
-            <div className="prodName text-7xl font-bold text-left text-white">
-              <h2>{category}-{name}</h2>
+        <div className="front relative  z-10 flex h-[100%] w-full items-center justify-around font-[Poppins]">
+          <div className="Section-L flex h-full max-w-[30%] flex-col justify-evenly">
+            <div className="prodName px-20 text-left text-7xl font-bold tracking-wider text-white">
+              <h2>  
+                {category}-{name}
+              </h2>
             </div>
-            <div className="price flex gap-8 text-5xl">
-              <p className="font-bold line-through text-[#72748e]">${price}</p>
+            <div className="price flex gap-8 px-20 text-5xl">
+              <p className="font-bold text-[#72748e] line-through">${price}</p>
               <p className="font-bold text-[#676eff]">${discountPrice}</p>
             </div>
-            <div className="ATC w-[50%] h-10 flex justify-center items-center text-2xl rounded-xl bg-[#676eff]">
-              <IoIosAddCircleOutline/>
-              <a href="/" className="mx-4">Add to cart</a>
+            <div className="w-fit px-20">
+              <a href="/" className="flex items-center gap-4">
+                <div className="text-6xl text-[#676eff]">
+                  <CiCirclePlus />
+                </div>
+                <div className="font-[Montserrat] text-lg uppercase text-white">
+                  Add to Cart
+                </div>
+              </a>
             </div>
           </div>
-          <div className="Image w-[45%] h-[90%]">
+          <div className="Image h-[90%] w-[45%]">
             <img
               src={productImg}
-              alt=""
-              className="object-cover drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]"
+              alt="ProductImage"
+              className="object-cover drop-shadow-[0_40px_40px_rgba(0,0,0,0.7)]"
             />
           </div>
         </div>

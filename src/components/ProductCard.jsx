@@ -1,39 +1,45 @@
 import React from "react";
 import { MdExpandMore } from "react-icons/md";
+import { CiCirclePlus } from "react-icons/ci";
 
 function ProductCard({ productData }) {
   const { _id, name, company, price, discountPrice, productImg } = productData;
   return (
     <>
-      <div className="w-full h-[85vh] relative">
-        <div className="backText absolute top-[45%] overflow-hidden -translate-y-1/2 -translate-x-7 font-[Montserrat] text-[18rem] text-[#72748e] opacity-15 z-0 select-none font-extrabold uppercase tracking-wide">
+      <div className="relative h-[85vh] w-full">
+        <div className="backText absolute top-[45%] z-0 -translate-x-7 -translate-y-1/2 select-none overflow-hidden font-[Montserrat] text-[18rem] font-extrabold uppercase tracking-wide text-[#72748e] opacity-15">
           <h1>{company}</h1>
         </div>
-        <div className="front font-[Poppins]  z-10 w-full h-[100%] flex justify-around items-center relative">
-          <div className="Section-L h-full max-w-[30%] flex flex-col justify-evenly">
-            <div className="prodName text-7xl font-bold text-left text-white">
+        <div className="front relative  z-10 flex h-[100%] w-full items-center justify-around font-[Poppins]">
+          <div className="Section-L flex h-full max-w-[30%] flex-col justify-evenly">
+            <div className="prodName text-left text-7xl font-bold px-20 text-white">
               <h2>{name}</h2>
             </div>
-            <div className="price flex gap-8 text-5xl">
-              <p className="font-bold line-through text-[#72748e]">${price}</p>
+            <div className="price flex gap-8 text-5xl px-20">
+              <p className="font-bold text-[#72748e] line-through">${price}</p>
               <p className="font-bold text-[#676eff]">${discountPrice}</p>
             </div>
-            <div className="BUY w-[50%] h-10 flex justify-center items-center text-2xl rounded-xl bg-[#676eff]">
-              <a href="/" className="mx-4">
-                Buy Now
+            <div className="w-fit px-20 mt-10">
+              <a href="/" className="flex items-center gap-4">
+                <div className="text-6xl text-[#676eff]">
+                  <CiCirclePlus />
+                </div>
+                <div className="font-[Montserrat] text-xl uppercase text-white">
+                  Add to Cart
+                </div>
               </a>
             </div>
             <div>
               <a
                 href="#Details"
-                className="text-8xl text-[#676eff] absolute bottom-1 left-1/2 -translate-x-1/2 "
+                className="absolute bottom-1 left-1/2 -translate-x-1/2 text-8xl text-[#676eff] "
               >
-                <MdExpandMore className="hover:scale-125 transition-all ease-in-out" />
+                <MdExpandMore className="transition-all ease-in-out hover:scale-125" />
               </a>
             </div>
           </div>
 
-          <div className="Image w-[45%] h-[90%]">
+          <div className="Image h-[90%] w-[45%]">
             <img
               src={productImg}
               alt=""

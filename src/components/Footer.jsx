@@ -4,7 +4,7 @@ import { FaGithub, FaInstagram, FaTwitter } from "react-icons/fa";
 const Footer = () => {
   return (
     <>
-      <div className="min-h-[40vh] w-full bg-[#111117] text-white text-xl flex justify-between p-10">
+      <div className="flex min-h-[40vh] w-full justify-between bg-[#111117] p-10 text-xl text-white">
         <div className="links flex gap-24 p-4">
           <ul className="list flex flex-col gap-4 text-2xl">
             <a href="/">
@@ -31,7 +31,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="about">
-          <p className="max-w-[30vw] text-l text-[#72748e]">
+          <p className="text-l max-w-[30vw] text-[#72748e]">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse culpa
             reiciendis numquam iusto illum sit dolorum odit maiores rem
             excepturi obcaecati distinctio, vel, vitae similique inventore, modi
@@ -39,7 +39,7 @@ const Footer = () => {
           </p>
         </div>
       </div>
-      <div className="copyright flex justify-between items-center px-10 border-y border-[#72748e] h-[10vh] bg-[#111117] text-white">
+      <div className="copyright flex h-[10vh] items-center justify-between  border-y border-[#72748e] bg-[#111117] px-10 text-white">
         <p>Copyright&copy; 2023, All rights reserved </p>
         <a href="https://github.com/AvadhootSmart">
           <img src="/Logo.png" className="h-16 w-16 object-cover invert" />

@@ -1,30 +1,36 @@
+import axios from "axios";
 import React from "react";
 import { FiPlusCircle } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const FeaturedCard = ({ card }) => {
   const { _id, productImg, name, price, company } = card;
+
+  function addToCart(id) {
+    axios.post(`http://localhost:5000/cart/product/${id}`);
+  }
+
   return (
     <>
       <div className="prodcard flex flex-col items-center ">
-        <img
-          src={productImg}
-          className="h-[25vh] w-[25vw] object-contain drop-shadow-xl"
-        />
+        <Link to={`/product/${_id}`}>
+          <img
+            src={productImg}
+            className="h-[35vh] w-[35vw] object-contain drop-shadow-[0_35px_35px_rgba(0,0,0,0.98)]"
+          />
+        </Link>
         <h1 className="font-[Montserrat]">{name}</h1>
         <h2 className="text-[#72748e] ">{company}</h2>
-        <h1 className="text-3xl text-[#676eff] font-[Montserrat]">${price}</h1>
-        <a href={`/product/${_id}`}>
-          <div className="bg-[#72748e] p-2 rounded text-black">View</div>
-        </a>
+        <h1 className="font-[Montserrat] text-3xl text-[#676eff]">${price}</h1>
         <div className="browse my-2">
-          <a href="/">
+          <button onClick={() => addToCart(_id)}>
             <div className="flex items-center gap-2 font-[Montserrat]">
-              <FiPlusCircle className="text-[#676eff] text-2xl" />
-              <h1 className="uppercase text-white text-l font-bold">
+              <FiPlusCircle className="text-2xl text-[#676eff]" />
+              <h1 className="text-l font-bold uppercase text-white">
                 Add to Cart
               </h1>
             </div>
-          </a>
+          </button>
         </div>
       </div>
     </>
