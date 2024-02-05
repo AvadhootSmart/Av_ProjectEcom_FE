@@ -23,12 +23,11 @@ const Navbar = () => {
       </div>
       <div className="right flex">
         <div className="profile mx-16 flex items-center gap-5">
-          <img
-            src="/Messi Pfp.jpg"
-            className="h-10 w-10 rounded-full object-cover"
-            alt="profile"
-          />
-          {user ? <h1>{user.user.username}</h1> : <Link to="/Login">Login</Link>}
+          {user ? (
+            <h1>{user.user.username}</h1>
+          ) : (
+            <Link to="/Login">Login</Link>
+          )}
         </div>
         <div className="cart mt-16 flex flex-col gap-10">
           <div>

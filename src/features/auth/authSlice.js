@@ -15,8 +15,11 @@ const authSlice = createSlice({
       state.isAuthenticated = false;
       state.user = null;
     },
+    GoogleLoginSuccess(state) {
+      state.isAuthenticated = true;
+    },
   },
 });
 
-export const { loginSuccess, logoutSuccess } = authSlice.actions;
+export const { loginSuccess, logoutSuccess, GoogleLoginSuccess } = authSlice.actions;
 export default authSlice.reducer;

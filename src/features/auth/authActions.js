@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { loginSuccess, logoutSuccess } from "./authSlice";
+import { loginSuccess} from "./authSlice";
 import axios from "axios";
 
 const loginUser = createAsyncThunk(
@@ -20,4 +20,6 @@ const loginUser = createAsyncThunk(
   },
 );
 
-export default loginUser;
+
+
+export { loginUser };
