@@ -1,7 +1,12 @@
 import React from "react";
 import { FaGithub, FaInstagram, FaTwitter } from "react-icons/fa";
+import { useLocation } from "react-router";
 
 const Footer = () => {
+  const location = useLocation();
+  if (location.pathname === "/Login" || location.pathname === "/Register") {
+    return null;
+  }
   return (
     <>
       <div className="flex min-h-[40vh] w-full justify-between bg-[#111117] p-10 text-xl text-white">
