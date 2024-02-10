@@ -21,5 +21,8 @@ const authSlice = createSlice({
   },
 });
 
-export const { loginSuccess, logoutSuccess, GoogleLoginSuccess } = authSlice.actions;
+
+
+export const { loginSuccess, logoutSuccess, GoogleLoginSuccess } =
+  authSlice.actions;
 export default authSlice.reducer;

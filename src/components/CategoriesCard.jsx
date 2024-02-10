@@ -4,7 +4,7 @@ import { FiMinusCircle } from "react-icons/fi";
 const CategoriesCard = ({image, category, price}) => {
   return (
     <>
-      <div className="w-[35vw] h-[45vh] border-4 border-[#72748e] overflow-hidden rounded relative shadow-2xl">
+      <div className="w-1/2 h-1/2 border-4 border-[#72748e] overflow-hidden relative shadow-2xl">
         <div className="back absolute top-[60%] -translate-y-1/2 -translate-x-7 font-[Montserrat] text-9xl text-[#72748e] opacity-15 select-none font-extrabold z-0">
           <h1 className="uppercase">{category}</h1>
         </div>

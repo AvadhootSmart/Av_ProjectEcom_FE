@@ -1,8 +1,32 @@
 import React, { useState } from "react";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { CiCirclePlus } from "react-icons/ci";
+import { useSelector } from "react-redux";
+import axios from "axios";
 
-const HeroCard = ({ category, productImg, price, discountPrice, name }) => {
+const HeroCard = ({
+  category,
+  productImg,
+  price,
+  discountPrice,
+  name,
+  _id,
+}) => {
+
+  const user = useSelector((state) => state.auth.user);
+  if (user) {
+    var Uid = user.user._id;
+  }
+  async function AddToCart(productid, Uid) {
+    if (user) {
+      await axios.post(`http://localhost:5000/add-to-cart`, {
+        productId: productid,
+        userId: Uid,
+      });
+    } else {
+      console.log("Not Logged in, Please log in to add items to cart");
+    }
+  }
   return (
     <>
       <div className="relative h-[85vh] w-full">
@@ -12,7 +36,7 @@ const HeroCard = ({ category, productImg, price, discountPrice, name }) => {
         <div className="front relative  z-10 flex h-[100%] w-full items-center justify-around font-[Poppins]">
           <div className="Section-L flex h-full max-w-[30%] flex-col justify-evenly">
             <div className="prodName px-20 text-left text-7xl font-bold tracking-wider text-white">
-              <h2>  
+              <h2>
                 {category}-{name}
               </h2>
             </div>
@@ -21,14 +45,17 @@ const HeroCard = ({ category, productImg, price, discountPrice, name }) => {
               <p className="font-bold text-[#676eff]">${discountPrice}</p>
             </div>
             <div className="w-fit px-20">
-              <a href="/" className="flex items-center gap-4">
+              <button
+                onClick={() => AddToCart(_id, Uid)}
+                className="flex items-center gap-4"
+              >
                 <div className="text-6xl text-[#676eff]">
                   <CiCirclePlus />
                 </div>
                 <div className="font-[Montserrat] text-lg uppercase text-white">
                   Add to Cart
                 </div>
-              </a>
+              </button>
             </div>
           </div>
           <div className="Image h-[90%] w-[45%]">

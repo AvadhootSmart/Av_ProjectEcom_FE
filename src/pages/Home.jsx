@@ -16,7 +16,7 @@ const Home = () => {
 
     async function fetchFeatured() {
       const response = await axios.get("http://localhost:5000/Products");
-      setfeaturedCards(response.data)
+      setfeaturedCards(response.data);
     }
     fetchHero();
     fetchFeatured();
@@ -27,11 +27,11 @@ const Home = () => {
       <div className="h-screen w-full bg-[#23232f]">
         <HeroProduct cards={cardData} />
       </div>
-      <div className="bg-[#23232f] w-full min-h-screen">
-        <h1 className="text-white text-5xl font-[Poppins] text-center py-10 ">
+      <div className="min-h-screen w-full overflow-hidden bg-[#23232f] pb-40">
+        <h1 className="w-full py-10 text-center font-[Poppins] text-5xl text-white ">
           Categories
         </h1>
-        <div className="cards flex flex-wrap justify-center gap-10 px-32 pb-20">
+        <div className=" flex h-screen w-[100vw] flex-wrap">
           <CategoriesCard
             image="/Keyboard.png"
             category="Keyboard"
@@ -42,8 +42,8 @@ const Home = () => {
           <CategoriesCard image="/Headset.png" category="Headset" price="22" />
         </div>
       </div>
-      <div className="Page3 bg-[#23232f] py-10 w-full min-h-screen overflow-hidden">
-        <div className="heading text-white text-5xl font-bold px-14 font-[Poppins]">
+      <div className="Page3 min-h-screen w-full overflow-hidden bg-[#23232f] py-10">
+        <div className="heading px-14 font-[Poppins] text-5xl font-bold text-white">
           <h1 className="-mb-14">Featured</h1>
         </div>
         <Featured featuredCards={featuredCards} />

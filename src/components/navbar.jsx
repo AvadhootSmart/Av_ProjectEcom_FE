@@ -30,13 +30,15 @@ const Navbar = () => {
           )}
         </div>
         <div className="cart mt-16 flex flex-col gap-10">
-          <div>
+          <Link to='/Cart'>
             <div className="text-3xl text-[#676eff]">
               <FaShoppingCart />
             </div>
-          </div>
+          </Link>
+          
           <div>
-            <p className="rotate-90 text-lg uppercase">$250</p>
+          {user ? (<p className="rotate-90 text-lg uppercase">${user.user.cart.totalPrice}</p>):(<p></p>)}
+            
           </div>
         </div>
       </div>
