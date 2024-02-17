@@ -5,6 +5,7 @@ import { FaShoppingCart } from "react-icons/fa";
 const Navbar = () => {
   const location = useLocation();
   const user = useSelector((state) => state.auth.user);
+  const cart = useSelector((state)=> state.auth.cart)
 
   if (location.pathname === "/Login" || location.pathname === "/Register") {
     return null;
@@ -37,7 +38,7 @@ const Navbar = () => {
           </Link>
           
           <div>
-          {user ? (<p className="rotate-90 text-lg uppercase">${user.user.cart.totalPrice}</p>):(<p></p>)}
+          {user ? (<p className="rotate-90 text-lg uppercase">${cart.totalPrice}</p>):(<p></p>)}
             
           </div>
         </div>

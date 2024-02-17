@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { CiCirclePlus } from "react-icons/ci";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
+import { AddToCart } from "../features/auth/authSlice";
 
 const HeroCard = ({
   category,
@@ -12,17 +13,22 @@ const HeroCard = ({
   name,
   _id,
 }) => {
-
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
+  const cart = useSelector((state)=> state.auth.cart);
+
+  //If cart mein product already exists then instead of adding it again, just increaseQuantity of it, har baar add karke dont mess up the state management, then later after adding up using timeout or interval, post it to the database as the typical post request
   if (user) {
     var Uid = user.user._id;
   }
-  async function AddToCart(productid, Uid) {
+  async function addToCart(productid, Uid) {
     if (user) {
-      await axios.post(`http://localhost:5000/add-to-cart`, {
+      const response = await axios.post(`http://localhost:5000/add-to-cart`, {
         productId: productid,
         userId: Uid,
       });
+      const productDets = response.data;
+      dispatch(AddToCart(productDets.data.items));
     } else {
       console.log("Not Logged in, Please log in to add items to cart");
     }
@@ -46,7 +52,7 @@ const HeroCard = ({
             </div>
             <div className="w-fit px-20">
               <button
-                onClick={() => AddToCart(_id, Uid)}
+                onClick={() => addToCart(_id, Uid)}
                 className="flex items-center gap-4"
               >
                 <div className="text-6xl text-[#676eff]">
