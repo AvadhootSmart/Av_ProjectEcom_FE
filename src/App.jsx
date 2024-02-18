@@ -12,6 +12,8 @@ import {
 import { Navbar, Footer } from "./components";
 import { useSelector } from "react-redux";
 import ScrollToTop from "./components/ScrollToTop";
+import SuccessPage from "./pages/SuccessPage";
+import FailedPage from "./pages/FailedPage";
 
 export default function App() {
   const user = useSelector((state) => state.auth.user);
@@ -24,9 +26,11 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<ProductPage />} />
-          <Route path="/mouse" element={<CategoryPage />} />
-          <Route path="/Login" element={<LoginPage />} /> 
+          <Route path="/products/:category" element={<CategoryPage />} />
+          <Route path="/Login" element={<LoginPage />} />
           <Route path="/Register" element={<RegisterPage />} />
+          <Route path="/Success" element={<SuccessPage />} />
+          <Route path="/Failed" element={<FailedPage />} />
           <Route path="/Cart" element={user ? <CartPage /> : <FailurePage />} />
         </Routes>
         <Footer />

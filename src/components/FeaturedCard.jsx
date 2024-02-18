@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { FiPlusCircle } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { AddToCart } from "../features/auth/authSlice";
 
 const FeaturedCard = ({ card }) => {
   const { _id, productImg, name, price, company } = card;
@@ -23,7 +24,7 @@ const FeaturedCard = ({ card }) => {
         <h2 className="text-[#72748e] ">{company}</h2>
         <h1 className="font-[Montserrat] text-3xl text-[#676eff]">${price}</h1>
         <div className="browse my-2">
-          <button onClick={() => addToCart(_id)}>
+          <button onClick={() => AddToCart(card)}>
             <div className="flex items-center gap-2 font-[Montserrat]">
               <FiPlusCircle className="text-2xl text-[#676eff]" />
               <h1 className="text-l font-bold uppercase text-white">
